@@ -5,10 +5,11 @@
 
     <link href="https://fonts.googleapis.com/css?family=Quicksand:400,700,300" rel="stylesheet">
 	<link rel="stylesheet" href="/styles/app.css">
+    <link rel="stylesheet" href="/styles/css/bootstrap.css">
 }
 
 #export("body") {
-    <div class="message">
+    <div class="form-group">
         #raw() {
             <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 -5 48 60" enable-background="new 0 0 48 48" xml:space="preserve" id="droplet">
                 <defs>
