@@ -1,4 +1,4 @@
-# Basic Template
+# To Do list app
 
 A basic vapor template for starting a new Vapor web application. If you're using vapor toolbox, you can use: `vapor new --template=basic`
 
