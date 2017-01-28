@@ -17,7 +17,11 @@ drop.get("version") { request in
         return "No db connection"
     }
 }
-
+drop.post ("new") { request in
+    var acronym = try Acronym(node: request.json)
+    try acronym.save()
+    return acronym
+}
 drop.get ("test") { request in
     var acronym = Acronym(short: "AFK", long: "Away From Keyboard")
     try acronym.save()
