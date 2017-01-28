@@ -1,11 +1,3 @@
-//
-//  TasksViewController.swift
-//  TodoList
-//
-//  Created by Mohammad Azam on 12/30/16.
-//
-//
-
 import Vapor
 import VaporSQLite
 import HTTP

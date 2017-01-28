@@ -1,0 +1,39 @@
+
+#extend("base")
+
+#export("body") {
+
+    <h1>Index View</h1>
+
+
+
+#loop(tasks,"task") {
+
+<form action="/tasks/delete" method="POST">
+<li>#(task.title)</li>
+<input type="submit" value="Delete" />
+<input type="hidden" value="#(task.taskId)" name="taskId" />
+</form>
+
+}
+
+<!-- Adding a New Task -->
+
+<form action="/tasks" method="POST">
+    
+    Enter a Task Title <input type="text" name="title" />
+    <input type="submit" value="Submit"/>
+    
+</form>
+
+
+}
+
+
+
+
+
+
+
+
+
