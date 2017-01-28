@@ -31,6 +31,11 @@ drop.get("model") { request in
     let acronym = Acronym(short: "AFK", long: "Away From Keyboard")
     return try acronym.makeJSON()
 }
+drop.get("acronyms/all") { request in
+    return try JSON(node: Acronym.all().makeNode())
+}
+
+
 
 drop.get("index") { request in
     return try drop.view.make("index",["message":"Hello World"])
