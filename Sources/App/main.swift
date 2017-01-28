@@ -8,33 +8,8 @@ let drop = Droplet(
     preparations: [Acronym.self],
     providers: [VaporPostgreSQL.Provider.self]
 )
-
-drop.get("version") { request in
-    if let db = drop.database?.driver as? PostgreSQLDriver {
-        let version = try db.raw("SELECT version()")
-        return try JSON(node: version)
-    } else {
-        return "No db connection"
-    }
-}
-drop.post ("new") { request in
-    var acronym = try Acronym(node: request.json)
-    try acronym.save()
-    return acronym
-}
-drop.get ("test") { request in
-    var acronym = Acronym(short: "AFK", long: "Away From Keyboard")
-    try acronym.save()
-    return try JSON(node: Acronym.all().makeNode())
-}
-drop.get("model") { request in
-    let acronym = Acronym(short: "AFK", long: "Away From Keyboard")
-    return try acronym.makeJSON()
-}
-drop.get("acronyms/all") { request in
-    return try JSON(node: Acronym.all().makeNode())
-}
-
+let acronymController = AcronymConroller();
+acronymController.addRoutes(drop: drop)
 
 
 drop.get("index") { request in
