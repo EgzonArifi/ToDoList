@@ -5,7 +5,6 @@
 
     <link href="https://fonts.googleapis.com/css?family=Quicksand:400,700,300" rel="stylesheet">
 	<link rel="stylesheet" href="/styles/app.css">
-    <link rel="stylesheet" href="/styles/css/bootstrap.css">
 }
 
 #export("body") {

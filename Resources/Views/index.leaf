@@ -1,46 +1,23 @@
+#extend("master")
 
-#extend("base")
+#export("head") {
+    #embed("welcome")
+}
 
 #export("body") {
-
-    <h1>Index View</h1>
-
-<table class="table table-responsive table-striped">
-<th>
-Task
-</th>
-<th>
-</th>
-#loop(tasks,"task") {
-<tr>
-    <td>#(task.title)  </td>
-    <td><form action="/tasks/delete" method="POST">
-    <input type="submit" value="Delete"/>
-    <input type="hidden" value="#(task.taskId)" name="taskId" />
-    </form> </td>
-</tr>
-}
-</table>
-
-
-</br></br>
-<!-- Adding a New Task -->
-
-<form action="/tasks" method="POST">
-    
-    Enter a Task Title <input type="text" name="title" />
-    <input type="submit" value="Submit"/>
-    
-</form>
-
-
+    #loop(user, "user") {
+        <h1>Hello, #(user.name)! <a href="mailto:#(user.email)">[Email]</a></h1>
+    }
 }
 
 
 
+<!DOCTYPE html>
+<html>
+    <head>
+        #import("head")
+    </head>
+    <body>
 
-
-
-
-
-
+            </body>
+</html>

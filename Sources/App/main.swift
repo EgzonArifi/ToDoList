@@ -24,4 +24,27 @@ drop.post("post") { request in
 
 }
 
+drop.get("template") { request in
+    let users =  try [
+        ["name": "Egzon", "email": "egzonarifi@gmail.com"].makeNode(),
+        ["name": "John", "email": "egzonarifi@gmail.com"].makeNode(),
+        ["name": "Joe", "email": "egzonarifi@gmail.com"].makeNode(),
+        ["name": "William", "email": "egzonarifi@gmail.com"].makeNode()
+    ].makeNode()
+
+    return try drop.view.make("index", Node(node: ["user": users]))
+}
+
 drop.run()
+
+
+
+
+
+
+
+
+
+
+
+
