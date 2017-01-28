@@ -8,9 +8,12 @@ let drop = Droplet(
     preparations: [Acronym.self],
     providers: [VaporPostgreSQL.Provider.self]
 )
+
 let acronymController = AcronymConroller();
 acronymController.addRoutes(drop: drop)
 
+let restApiController = ApiController()
+drop.resource("api/v1/acronyms", restApiController)
 
 drop.get("index") { request in
     return try drop.view.make("index",["message":"Hello World"])
