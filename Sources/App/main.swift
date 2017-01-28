@@ -8,7 +8,7 @@ let drop = Droplet()
 try drop.addProvider(VaporSQLite.Provider.self)
 
 let controller = TasksViewController()
-//controller.addRoutes(drop: drop)
+controller.addRoutes(drop: drop)
 
 drop.post("tasks","delete") { request in
     
