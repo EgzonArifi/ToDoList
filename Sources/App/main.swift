@@ -4,10 +4,9 @@ import VaporPostgreSQL
 import Foundation
 
 
-let drop = Droplet(
-    preparations: [Acronym.self],
-    providers: [VaporPostgreSQL.Provider.self]
-)
+let drop = Droplet()
+try drop.addProvider(VaporPostgreSQL.Provider)
+drop.preparations += Acronym.self
 
 let acronymController = AcronymConroller();
 acronymController.addRoutes(drop: drop)

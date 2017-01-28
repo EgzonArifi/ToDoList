@@ -7,6 +7,7 @@ final class AcronymConroller {
     func addRoutes(drop: Droplet) {
         let acronymBasic = drop.grouped("acronym")
         acronymBasic.get("version", handler:version)
+        drop.get("acronym", handler:indexView)
         acronymBasic.post("create", handler:create)
         acronymBasic.get("getAll",handler:getAll)
         acronymBasic.get("first", handler: first)
@@ -23,6 +24,14 @@ final class AcronymConroller {
         } else {
             return "No db connection"
         }
+    }
+
+    func indexView(request: Request) throws -> ResponseRepresentable {
+        let acronyms = try Acronym.all().makeNode()
+        let parameters = try Node(node: [
+            "acronyms": acronyms,
+            ])
+        return try drop.view.make("index", parameters)
     }
 
     func create(request: Request) throws -> ResponseRepresentable {
