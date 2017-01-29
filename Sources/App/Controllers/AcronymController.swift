@@ -9,12 +9,13 @@ final class AcronymConroller {
         acronymBasic.get("version", handler:version)
         drop.get("acronym", handler:indexView)
         acronymBasic.post("create", handler:create)
+        acronymBasic.post("addAcronym", handler:addAcronym)
         acronymBasic.get("getAll",handler:getAll)
         acronymBasic.get("first", handler: first)
         acronymBasic.get("afks", handler: afks)
         acronymBasic.get("not-afks", handler: notAfks)
         acronymBasic.get("update", handler: update)
-        acronymBasic.get("delete-afks", handler: deleteAfks)
+        drop.post("acronym", Acronym.self, "deleteAcronym", handler: deleteAcronym)
     }
 
     func version(request: Request) throws -> ResponseRepresentable {
@@ -40,6 +41,21 @@ final class AcronymConroller {
         return acronym
     }
 
+    func addAcronym(request: Request) throws -> ResponseRepresentable {
+
+        guard let short = request.data["short"]?.string, let long = request.data["long"]?.string else {
+            throw Abort.badRequest
+        }
+
+        var acronym = Acronym(short: short, long: long)
+        try acronym.save()
+
+        return Response(redirect: "/acronym")
+    }
+    func deleteAcronym(request: Request, acronym: Acronym) throws -> ResponseRepresentable {
+        try acronym.delete()
+        return Response(redirect: "/acronym")
+    }
     func getAll(request: Request) throws -> ResponseRepresentable {
         return try JSON(node: Acronym.all().makeNode())
     }
@@ -64,7 +80,6 @@ final class AcronymConroller {
         first.long = long
         try first.save()
         return first
-
     }
 
     func deleteAfks(request: Request) throws -> ResponseRepresentable {
