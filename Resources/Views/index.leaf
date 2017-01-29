@@ -1,23 +1,37 @@
-#extend("master")
-
-#export("head") {
-    #embed("welcome")
-}
+#extend("base")
 
 #export("body") {
-    #loop(user, "user") {
-        <h1>Hello, #(user.name)! <a href="mailto:#(user.email)">[Email]</a></h1>
+<form action="/acronym/addAcronym" method="post">
+    <div class="row">
+        <div class="three columns">
+            <label>Acronym</label>
+            <input name="short" class="u-full-width" placeholder="short form e.g. FTW" />
+        </div>
+        <div class="nine columns">
+            <label>Long Form</label>
+            <input name="long" class="u-full-width" placeholder="long form e.g. For The Win" />
+            <input class="button-primary" type="submit" value="Save Acronym">
+                </div>
+    </div>
+</form>
+<table class="u-full-width">
+    <thead>
+        <tr>
+            <th>Short</th>
+            <th>Long</th>
+            <th></th>
+        </tr>
+    </thead>
+    #loop(acronyms, "acronym") {
+    <tbody>
+        <tr>
+            <td><h5><span>#(acronym.short)</span></h5></td>
+            <td>#(acronym.long)</span></td>
+            <td>  <form action="/acronym/#(acronym.id)/deleteAcronym" method="post">
+                <input type="submit" value="Delete"/>
+            </form></td>
+        </tr>
+    </tbody>
     }
+</table>
 }
-
-
-
-<!DOCTYPE html>
-<html>
-    <head>
-        #import("head")
-    </head>
-    <body>
-
-            </body>
-</html>
