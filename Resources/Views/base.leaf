@@ -1,46 +1,50 @@
 <!DOCTYPE html>
 <html>
-    <head>
 
-        #import("head")
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-            <link rel="stylesheet" href="/styles/normalize.css">
-                <link rel="stylesheet" href="/styles/uikit.min.css" />
-                <script src="/styles/uikit.min.js"></script>
-                <link rel="stylesheet" href="/styles/skeleton.css">
-                    <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+<head>
 
+    #import("head")
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<div class="uk-position-relative">
-    <img src="" alt="">
-        <div class="uk-position-top">
-            <nav class="uk-navbar-container uk-navbar-transparent" uk-navbar>
-                <div class="uk-navbar-left">
-                    <ul class="uk-navbar-nav">
-                        <li class="uk-active"><a href="">Active</a></li>
-                        <li><a href="">Item</a></li>
-                        <li>
-                            <a href="">Parent</a>
-                            <div class="uk-navbar-dropdown">
-                                <ul class="uk-nav uk-navbar-dropdown-nav">
-                                    <li class="uk-active"><a href="">Active</a></li>
-                                    <li><a href="">Item</a></li>
-                                    <li class="uk-nav-header">Header</li>
-                                    <li><a href="">Item</a></li>
-                                    <li><a href="">Item</a></li>
-                                    <li class="uk-nav-divider"></li>
-                                    <li><a href="">Item</a></li>
-                                </ul>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
+            <link rel="stylesheet" href="/styles/uikit.min.css" />
+            <script src="/styles/uikit.min.js"></script>
+            <script src="/styles/jquery-3.1.1.min.js"></script>
+            <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+
+<nav class="uk-navbar-container uk-margin" uk-navbar>
+    <div class="uk-navbar-center">
+
+        <div class="uk-navbar-center-left">
+            <ul class="uk-navbar-nav">
+                <li class="uk-active"><a href="">Active</a></li>
+                <li>
+                    <a href="">Parent</a>
+                    <div class="uk-navbar-dropdown">
+                        <ul class="uk-nav uk-navbar-dropdown-nav">
+                            <li class="uk-active"><a href="">Active</a></li>
+                            <li><a href="">Item</a></li>
+                            <li><a href="">Item</a></li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
         </div>
-</div>
-     </head>
+        <a class="uk-navbar-item uk-logo" href="">SWIFT</a>
+        <div class="uk-navbar-center-right">
+            <ul class="uk-navbar-nav">
+                <li><a href="">Item</a></li>
+            </ul>
+        </div>
+
+    </div>
+</nav>
+                    </head>
+
+
+
+
     <body>
-        <div class="container">
+        <div class="uk-container">
             <div class="row">
                 <div class="u-full-width">
                     <h2>List of all acronyms <small> - SWIFT -</small></h2>

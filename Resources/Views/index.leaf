@@ -7,19 +7,22 @@
 </div>
 
 <form action="/acronym/addAcronym" method="post">
-    <div class="row">
-        <div class="three columns">
-            <label>Acronym</label>
-            <input name="short" class="u-full-width" placeholder="short form e.g. FTW" />
-        </div>
-        <div class="nine columns">
-            <label>Long Form</label>
-            <input name="long" class="u-full-width" placeholder="long form e.g. For The Win" />
-            <input class="button-primary" type="submit" value="Save Acronym">
-                </div>
+ 
+<div class="uk-child-width-1-2@()s uk-child-width-1-3@()m uk-text-center" uk-grid>
+    <div>
+        <div class="uk-card uk-card-default uk-card-body"><label>Acronym</label>
+            <input name="short" class="uk-input uk-form-width-medium" placeholder="short form e.g. FTW" /></div>
     </div>
+    <div>
+        <div class="uk-card uk-card-default uk-card-body"> <label>Long Form</label>
+            <input name="long" class="uk-input uk-form-width-medium" placeholder="long form e.g. For The Win" />
+            <input class="uk-button uk-button-primary" type="submit" value="Save Acronym"></div>
+    </div>
+
+</div>
+
 </form>
-<table class="u-full-width">
+<table class="uk-table">
     <thead>
         <tr>
             <th>Short</th>
@@ -27,21 +30,17 @@
             <th></th>
         </tr>
     </thead>
-    #loop(acronyms, "acronym") {
-    <div class="uk-card uk-card-default uk-card-body">
-        <h3 class="uk-card-title">Default</h3>
-        <p>Lorem ipsum <a href="">dolor</a> sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-    </div>
+        #loop(acronyms, "acronym") {
+  
     <tbody>
         <tr>
             <td> <span>#(acronym.short)</span></h5></td>
             <td>#(acronym.long)</span></td>
             <td>  <form action="/acronym/#(acronym.id)/deleteAcronym" method="post">
-                <input type="submit" value="Delete"/>
+                <input class="uk-button uk-button-default" type="submit" value="Delete"/>
             </form></td>
         </tr>
     </tbody>
     }
 </table>
 }
-
