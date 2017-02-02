@@ -1,6 +1,11 @@
 #extend("base")
 
 #export("body") {
+
+<div class="uk-cover-container uk-height-medium">
+    <img src="https://getuikit.com/docs/images/dark.jpg" alt="" uk-cover>
+</div>
+
 <form action="/acronym/addAcronym" method="post">
     <div class="row">
         <div class="three columns">
@@ -23,9 +28,13 @@
         </tr>
     </thead>
     #loop(acronyms, "acronym") {
+    <div class="uk-card uk-card-default uk-card-body">
+        <h3 class="uk-card-title">Default</h3>
+        <p>Lorem ipsum <a href="">dolor</a> sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+    </div>
     <tbody>
         <tr>
-            <td><h5><span>#(acronym.short)</span></h5></td>
+            <td> <span>#(acronym.short)</span></h5></td>
             <td>#(acronym.long)</span></td>
             <td>  <form action="/acronym/#(acronym.id)/deleteAcronym" method="post">
                 <input type="submit" value="Delete"/>
@@ -35,3 +44,4 @@
     }
 </table>
 }
+

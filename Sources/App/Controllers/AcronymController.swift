@@ -7,7 +7,7 @@ final class AcronymConroller {
     func addRoutes(drop: Droplet) {
         let acronymBasic = drop.grouped("acronym")
         acronymBasic.get("version", handler:version)
-        drop.get(handler:indexView)
+        drop.get("acronym", handler:indexView)
         acronymBasic.post("create", handler:create)
         acronymBasic.post("addAcronym", handler:addAcronym)
         acronymBasic.get("getAll",handler:getAll)
