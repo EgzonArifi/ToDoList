@@ -1,7 +1,9 @@
 #extend("base")
 
 #export("body") {
-Hello, #(short)!
+ #loop(acronyms, "acronym") {
+Hello, #(acronym.long)!
+}
 <div class="uk-cover-container uk-height-medium">
     <img src="https://getuikit.com/docs/images/dark.jpg" alt="" uk-cover>
 </div>
@@ -18,31 +20,9 @@ Hello, #(short)!
                 <input name="long" class="uk-input uk-form-width-medium" placeholder="long form e.g. For The Win" />
                 <input class="uk-button uk-button-primary" type="submit" value="Save Acronym"></div>
         </div>
-
+<input type="text" hiden="" value="Hello, #()(name)!">
     </div>
 
 </form>
-<table class="uk-table">
-    <thead>
-        <tr>
-            <th>Short</th>
-            <th>Long</th>
-            <th></th>
-            <th></th>
-        </tr>
-    </thead>
-    #loop(acronyms, "acronym") {
 
-    <tbody>
-        <tr>
-            <td> <span>#(acronym.short)</span></h5></td>
-            <td>#(acronym.long)</span></td>
-            <td>  <form action="/acronym/#(acronym.id)/deleteAcronym" method="post">
-                <input class="uk-button uk-button-default" type="submit" value="Delete"/>
-            </form></td>
-            <td><input class="uk-button uk-button-primary" type="submit" value="Edit"/></td>
-        </tr>
-    </tbody>
-    }
-</table>
 }

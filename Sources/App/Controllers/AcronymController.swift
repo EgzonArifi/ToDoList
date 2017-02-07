@@ -8,6 +8,7 @@ final class AcronymConroller {
         let acronymBasic = drop.grouped("acronym")
         acronymBasic.get("version", handler:version)
         drop.get("acronym", handler:indexView)
+        drop.get("edit", handler:editView)
         acronymBasic.post("create", handler:create)
         acronymBasic.post("addAcronym", handler:addAcronym)
         acronymBasic.get("getAll",handler:getAll)
@@ -35,6 +36,13 @@ final class AcronymConroller {
         return try drop.view.make("index", parameters)
     }
 
+    func editView(request: Request) throws -> ResponseRepresentable {
+        let acronyms = try Acronym.query().first()?.makeNode()
+        let parameters = try Node(node: [
+            "acronyms": acronyms,
+            ])
+        return try drop.view.make("edit", parameters)
+    }
     func create(request: Request) throws -> ResponseRepresentable {
         var acronym = try Acronym(node: request.json)
         try acronym.save()
