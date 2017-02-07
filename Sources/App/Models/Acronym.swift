@@ -2,8 +2,8 @@ import Vapor
 
 final class Acronym: Model {
 
+    var exist: Bool = false
     var id: Node?
-    //var exist: Bool = false
 
     var short: String
     var long: String

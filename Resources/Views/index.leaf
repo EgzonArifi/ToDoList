@@ -7,19 +7,19 @@
 </div>
 
 <form action="/acronym/addAcronym" method="post">
- 
-<div class="uk-child-width-1-2@()s uk-child-width-1-3@()m uk-text-center" uk-grid>
-    <div>
-        <div class="uk-card uk-card-default uk-card-body"><label>Acronym</label>
-            <input name="short" class="uk-input uk-form-width-medium" placeholder="short form e.g. FTW" /></div>
-    </div>
-    <div>
-        <div class="uk-card uk-card-default uk-card-body"> <label>Long Form</label>
-            <input name="long" class="uk-input uk-form-width-medium" placeholder="long form e.g. For The Win" />
-            <input class="uk-button uk-button-primary" type="submit" value="Save Acronym"></div>
-    </div>
 
-</div>
+    <div class="uk-child-width-1-2@()s uk-child-width-1-3@()m uk-text-center" uk-grid>
+        <div>
+            <div class="uk-card uk-card-default uk-card-body"><label>Acronym</label>
+                <input name="short" class="uk-input uk-form-width-medium" placeholder="short form e.g. FTW" /></div>
+        </div>
+        <div>
+            <div class="uk-card uk-card-default uk-card-body"> <label>Long Form</label>
+                <input name="long" class="uk-input uk-form-width-medium" placeholder="long form e.g. For The Win" />
+                <input class="uk-button uk-button-primary" type="submit" value="Save Acronym"></div>
+        </div>
+
+    </div>
 
 </form>
 <table class="uk-table">
@@ -28,10 +28,11 @@
             <th>Short</th>
             <th>Long</th>
             <th></th>
+            <th></th>
         </tr>
     </thead>
-        #loop(acronyms, "acronym") {
-  
+    #loop(acronyms, "acronym") {
+
     <tbody>
         <tr>
             <td> <span>#(acronym.short)</span></h5></td>
@@ -39,6 +40,7 @@
             <td>  <form action="/acronym/#(acronym.id)/deleteAcronym" method="post">
                 <input class="uk-button uk-button-default" type="submit" value="Delete"/>
             </form></td>
+            <td><input class="uk-button uk-button-primary" type="submit" value="Edit"/></td>
         </tr>
     </tbody>
     }
